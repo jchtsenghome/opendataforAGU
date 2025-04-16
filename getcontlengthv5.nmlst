@@ -1,0 +1,10 @@
+ &getcontlengthlst
+ yyear=2004,
+ infilename='/geps1/chtseng/ncepdata/2004/ipv_ana_2004.dat',
+ oufilename1='/geps1/chtseng/ncepdata/2004/ipv2_w10_length_2004.dat',
+ wlon=60.,
+ npentad=7,
+ pvu=2.e-6,
+ diffpvu=3.0e-6,
+ gradpvu=4.0e-6,
+ &end

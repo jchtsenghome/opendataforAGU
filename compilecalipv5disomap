@@ -1,0 +1,49 @@
+SHELL=/bin/ksh
+SRCS=	calipv5disomap.f l2distance.f  indexx.f defj.f \
+	rs.f tred1.f tqlrat.f tred2.f tql2.f pythag.f
+SRCS90=	dijkstra_distance.f90
+
+OBJS=	calipv5disomap.o l2distance.o indexx.o defj.o \
+	rs.o tred1.o tqlrat.o tred2.o tql2.o pythag.o
+OBJS90=	dijkstra_distance.o
+
+FC =	/usr/bin/gfortran
+FC90 =	/usr/bin/gfortran
+#FC =    /users/xa09/dms_compile/fx10/dmsf77
+#FC =    /users/xa09/dms_compile/fx100/dmsf77
+#FC =	/users/xa09/bin/x86_dmsf77
+
+LIBS =
+CMD =	calipv5disomap.exe
+
+RM		= rm
+
+#FFLAGS  = -Kfast,parallel -CcdRR8 -Fwide
+#LDFLAGS = -L/package/fx10/dms/dms.v4/lib -lrdms -lgdbm -L/users/xa09/operlib/lib -lnwp \
+#          -SSL2 -Kparallel
+FFLAGS  = -fconvert=big-endian -mcmodel=large -O3
+FFLAGS90  = -fopenmp -fconvert=big-endian -mcmodel=large -O3
+LDFLAGS =
+
+#all : Build_BIN
+#Build_BIN : $(CMD)
+all:	$(CMD)
+
+.f.o:
+	$(FC) -c $(FFLAGS) $<
+
+dijkstra_distance.o:	dijkstra_distance.f90
+	$(FC90) -c $(FFLAGS90) dijkstra_distance.f90 
+
+$(CMD):		$(OBJS) $(OBJS90)
+	$(FC) -fopenmp $(FFLAGS) $(LDFLAGS) -o $(@) $(OBJS) $(OBJS90) $(LIBS)
+
+clean :
+#	-$(RM) *.o
+	-rm -f $(OBJS) $(OBJS90)
+
+clobber:        clean
+	-rm -f $(CMD) $(CMD).prof
+
+void:   clobber
+	-rm -f $(SRCS) compilecalipv5disomap

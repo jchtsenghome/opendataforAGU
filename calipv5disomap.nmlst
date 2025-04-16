@@ -1,0 +1,15 @@
+ &calipveoflst
+ keydate=19802022,
+ svtfsano_ana2_file='/geps1/chtseng/ncepdata/19802022/ipv_340k_pentadJJA_1980_2022.dat',
+ eofano_ana2_file='/geps1/chtseng/ncepdata/19802022/ISOMAP_ipv5d_340k_EA_JJA_1980_2022.dat',
+ eofratio_ana2_file='/geps1/chtseng/ncepdata/19802022/evratio_ISOMAP_ipv5d_340k_EA_JJA_1980_2022.dat',
+ eofpca_ana2_file='/geps1/chtseng/ncepdata/19802022/ISOPCA_ipv5d_340k_EA_JJA_1980_2022.dat',
+ eofev_ana2_file='/geps1/chtseng/ncepdata/19802022/ISOev_ipv5d_340k_EA_JJA_1980_2022.dat',
+ rlon1=70.,
+ rlon2=120.0,
+ rlat1=20.,
+ rlat2=40.,
+ nl2kind=1,
+ nv=2,
+ niter=1,
+ &end
